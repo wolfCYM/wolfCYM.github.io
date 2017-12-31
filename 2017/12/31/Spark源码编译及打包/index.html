@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="wolfcym&#39;s blog">
 <meta property="og:description" content="一直想研究下SPARK源码，但是由于源码中的一部分是在编译过程中产生，所以，在使用源码阅读工具导入SPARK源码之前，最好先完整编译一遍。作为一个快速发展并日趋成熟的开源项目，SPARK提供了详细的编译指导文档，参考这里。其实编译过程非常简单，不需要预先安装MAVEN、SCALA，只是需要科学上网。编译完成之后，我试着将SPARK打包，由于打包选项中加入了“–r”，导致在打包过程中数次失败，然后不">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-12-31T00:18:33.866Z">
+<meta property="og:updated_time" content="2017-12-31T09:25:46.732Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SPARK源码编译及打包">
 <meta name="twitter:description" content="一直想研究下SPARK源码，但是由于源码中的一部分是在编译过程中产生，所以，在使用源码阅读工具导入SPARK源码之前，最好先完整编译一遍。作为一个快速发展并日趋成熟的开源项目，SPARK提供了详细的编译指导文档，参考这里。其实编译过程非常简单，不需要预先安装MAVEN、SCALA，只是需要科学上网。编译完成之后，我试着将SPARK打包，由于打包选项中加入了“–r”，导致在打包过程中数次失败，然后不">
@@ -391,29 +391,29 @@ _ssl _ssl.c \
 </li>
 </ul>
 <h2 id="R"><a href="#R" class="headerlink" title="R"></a>R</h2><p>R为非必选项，按需安装，若不安装，则需要在编译选项中去掉“–r”。<br>R安装方式较多，可以选择源码安装、yum安装及rpm安装。这里使用yum安装。</p>
-<h4 id="安装EPEL-yum源"><a href="#安装EPEL-yum源" class="headerlink" title="安装EPEL yum源"></a>安装EPEL yum源</h4><ul>
-<li><p>安装</p>
+<h3 id="安装EPEL-yum源"><a href="#安装EPEL-yum源" class="headerlink" title="安装EPEL yum源"></a>安装EPEL yum源</h3><ul>
+<li><p><strong>安装</strong></p>
 <p>  rpm -ivh <a href="http://mirror.utexas.edu/epel/6/x86_64/epel-release-6-8.noarch.rpm" target="_blank" rel="noopener">http://mirror.utexas.edu/epel/6/x86_64/epel-release-6-8.noarch.rpm</a></p>
 </li>
-<li><p>检查</p>
+<li><p><strong>检查</strong></p>
 <p>  rpm -qa|grep epel</p>
 </li>
-<li><p>导入key</p>
+<li><p><strong>导入key</strong></p>
 <p>  rpm –import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6</p>
 </li>
 </ul>
-<h4 id="安装R"><a href="#安装R" class="headerlink" title="安装R"></a>安装R</h4><pre><code>yum install R
-</code></pre><h4 id="R相关包"><a href="#R相关包" class="headerlink" title="R相关包"></a>R相关包</h4><ul>
-<li><p>knitr</p>
+<h3 id="安装R"><a href="#安装R" class="headerlink" title="安装R"></a>安装R</h3><pre><code>yum install R
+</code></pre><h3 id="R相关包"><a href="#R相关包" class="headerlink" title="R相关包"></a>R相关包</h3><ul>
+<li><p><strong>knitr</strong></p>
 <p>  install.packages(“knitr”)</p>
 </li>
-<li><p>e1071</p>
+<li><p><strong>e1071</strong></p>
 <p>  install.packages(‘e1071’, dependencies=TRUE)</p>
 </li>
-<li><p>rmarkdown</p>
+<li><p><strong>rmarkdown</strong></p>
 <p>  install.packages(“rmarkdown”)</p>
 </li>
-<li><p>testthat</p>
+<li><p><strong>testthat</strong></p>
 <p>  install.packages(“testthat”)</p>
 </li>
 </ul>
@@ -667,7 +667,7 @@ SPARK_HOME=/path/to/spark /usr/bin/R CMD check --as-cran --no-tests SparkR_2.3.0
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#现有环境"><span class="nav-number">1.</span> <span class="nav-text">现有环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark源码下载"><span class="nav-number">2.</span> <span class="nav-text">Spark源码下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译环境准备"><span class="nav-number">3.</span> <span class="nav-text">编译环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK"><span class="nav-number">3.1.</span> <span class="nav-text">JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">3.2.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#R"><span class="nav-number">3.3.</span> <span class="nav-text">R</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装EPEL-yum源"><span class="nav-number">3.3.0.1.</span> <span class="nav-text">安装EPEL yum源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装R"><span class="nav-number">3.3.0.2.</span> <span class="nav-text">安装R</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#R相关包"><span class="nav-number">3.3.0.3.</span> <span class="nav-text">R相关包</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-etc-hosts"><span class="nav-number">3.4.</span> <span class="nav-text">配置/etc/hosts</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark编译"><span class="nav-number">4.</span> <span class="nav-text">Spark编译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark打包"><span class="nav-number">5.</span> <span class="nav-text">Spark打包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关组件版本"><span class="nav-number">5.1.</span> <span class="nav-text">相关组件版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#R源码包"><span class="nav-number">5.2.</span> <span class="nav-text">R源码包</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#现有环境"><span class="nav-number">1.</span> <span class="nav-text">现有环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark源码下载"><span class="nav-number">2.</span> <span class="nav-text">Spark源码下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译环境准备"><span class="nav-number">3.</span> <span class="nav-text">编译环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK"><span class="nav-number">3.1.</span> <span class="nav-text">JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">3.2.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#R"><span class="nav-number">3.3.</span> <span class="nav-text">R</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装EPEL-yum源"><span class="nav-number">3.3.1.</span> <span class="nav-text">安装EPEL yum源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装R"><span class="nav-number">3.3.2.</span> <span class="nav-text">安装R</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#R相关包"><span class="nav-number">3.3.3.</span> <span class="nav-text">R相关包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-etc-hosts"><span class="nav-number">3.4.</span> <span class="nav-text">配置/etc/hosts</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark编译"><span class="nav-number">4.</span> <span class="nav-text">Spark编译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark打包"><span class="nav-number">5.</span> <span class="nav-text">Spark打包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关组件版本"><span class="nav-number">5.1.</span> <span class="nav-text">相关组件版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#R源码包"><span class="nav-number">5.2.</span> <span class="nav-text">R源码包</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -394,29 +394,29 @@ _ssl _ssl.c \
 </li>
 </ul>
 <h2 id="R"><a href="#R" class="headerlink" title="R"></a>R</h2><p>R为非必选项，按需安装，若不安装，则需要在编译选项中去掉“–r”。<br>R安装方式较多，可以选择源码安装、yum安装及rpm安装。这里使用yum安装。</p>
-<h4 id="安装EPEL-yum源"><a href="#安装EPEL-yum源" class="headerlink" title="安装EPEL yum源"></a>安装EPEL yum源</h4><ul>
-<li><p>安装</p>
+<h3 id="安装EPEL-yum源"><a href="#安装EPEL-yum源" class="headerlink" title="安装EPEL yum源"></a>安装EPEL yum源</h3><ul>
+<li><p><strong>安装</strong></p>
 <p>  rpm -ivh <a href="http://mirror.utexas.edu/epel/6/x86_64/epel-release-6-8.noarch.rpm" target="_blank" rel="noopener">http://mirror.utexas.edu/epel/6/x86_64/epel-release-6-8.noarch.rpm</a></p>
 </li>
-<li><p>检查</p>
+<li><p><strong>检查</strong></p>
 <p>  rpm -qa|grep epel</p>
 </li>
-<li><p>导入key</p>
+<li><p><strong>导入key</strong></p>
 <p>  rpm –import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6</p>
 </li>
 </ul>
-<h4 id="安装R"><a href="#安装R" class="headerlink" title="安装R"></a>安装R</h4><pre><code>yum install R
-</code></pre><h4 id="R相关包"><a href="#R相关包" class="headerlink" title="R相关包"></a>R相关包</h4><ul>
-<li><p>knitr</p>
+<h3 id="安装R"><a href="#安装R" class="headerlink" title="安装R"></a>安装R</h3><pre><code>yum install R
+</code></pre><h3 id="R相关包"><a href="#R相关包" class="headerlink" title="R相关包"></a>R相关包</h3><ul>
+<li><p><strong>knitr</strong></p>
 <p>  install.packages(“knitr”)</p>
 </li>
-<li><p>e1071</p>
+<li><p><strong>e1071</strong></p>
 <p>  install.packages(‘e1071’, dependencies=TRUE)</p>
 </li>
-<li><p>rmarkdown</p>
+<li><p><strong>rmarkdown</strong></p>
 <p>  install.packages(“rmarkdown”)</p>
 </li>
-<li><p>testthat</p>
+<li><p><strong>testthat</strong></p>
 <p>  install.packages(“testthat”)</p>
 </li>
 </ul>
