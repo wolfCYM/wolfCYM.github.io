@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="源码编译,源码打包,R,Python," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="因为相信，所以看见。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wolfcym&#39;s blog">
-<meta property="og:url" content="http://wolfcym.github.io/index.html">
+<meta name="description" content="一直想研究下SPARK源码，但是由于源码中的一部分是在编译过程中产生，所以，在使用源码阅读工具导入SPARK源码之前，最好先完整编译一遍。作为一个快速发展并日趋成熟的开源项目，SPARK提供了详细的编译指导文档，参考这里。其实编译过程非常简单，不需要预先安装MAVEN、SCALA，只是需要科学上网。编译完成之后，我试着将SPARK打包，由于打包选项中加入了“–r”，导致在打包过程中数次失败，然后不">
+<meta name="keywords" content="源码编译,源码打包,R,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SPARK源码编译及打包">
+<meta property="og:url" content="http://wolfcym.github.io/2017/12/31/Spark源码编译及打包/index.html">
 <meta property="og:site_name" content="wolfcym&#39;s blog">
-<meta property="og:description" content="因为相信，所以看见。">
+<meta property="og:description" content="一直想研究下SPARK源码，但是由于源码中的一部分是在编译过程中产生，所以，在使用源码阅读工具导入SPARK源码之前，最好先完整编译一遍。作为一个快速发展并日趋成熟的开源项目，SPARK提供了详细的编译指导文档，参考这里。其实编译过程非常简单，不需要预先安装MAVEN、SCALA，只是需要科学上网。编译完成之后，我试着将SPARK打包，由于打包选项中加入了“–r”，导致在打包过程中数次失败，然后不">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-12-31T00:18:33.866Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wolfcym&#39;s blog">
-<meta name="twitter:description" content="因为相信，所以看见。">
+<meta name="twitter:title" content="SPARK源码编译及打包">
+<meta name="twitter:description" content="一直想研究下SPARK源码，但是由于源码中的一部分是在编译过程中产生，所以，在使用源码阅读工具导入SPARK源码之前，最好先完整编译一遍。作为一个快速发展并日趋成熟的开源项目，SPARK提供了详细的编译指导文档，参考这里。其实编译过程非常简单，不需要预先安装MAVEN、SCALA，只是需要科学上网。编译完成之后，我试着将SPARK打包，由于打包选项中加入了“–r”，导致在打包过程中数次失败，然后不">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://wolfcym.github.io/"/>
+  <link rel="canonical" href="http://wolfcym.github.io/2017/12/31/Spark源码编译及打包/"/>
 
 
 
 
 
-  <title>wolfcym's blog</title>
+  <title>SPARK源码编译及打包 | wolfcym's blog</title>
   
 
 
@@ -143,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -279,9 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/31/Spark源码编译及打包/" itemprop="url">SPARK源码编译及打包</a></h1>
+          <h1 class="post-title" itemprop="name headline">SPARK源码编译及打包</h1>
         
 
         <div class="post-meta">
@@ -353,9 +352,7 @@
       
 
       
-        
-          
-            <p>一直想研究下SPARK源码，但是由于源码中的一部分是在编译过程中产生，所以，在使用源码阅读工具导入SPARK源码之前，最好先完整编译一遍。<br>作为一个快速发展并日趋成熟的开源项目，SPARK提供了详细的编译指导文档，参考<a href="https://spark.apache.org/docs/latest/building-spark.html" target="_blank" rel="noopener">这里</a>。其实编译过程非常简单，不需要预先安装MAVEN、SCALA，只是需要科学上网。编译完成之后，我试着将SPARK打包，由于打包选项中加入了“–r”，导致在打包过程中数次失败，然后不得不回过头来，补齐打包依赖，过程较为曲折。<br>以下内容记录了从一个刚安装好OS的环境出发，一步一步打包SPARK源码，生成可运行包的过程。</p>
+        <p>一直想研究下SPARK源码，但是由于源码中的一部分是在编译过程中产生，所以，在使用源码阅读工具导入SPARK源码之前，最好先完整编译一遍。<br>作为一个快速发展并日趋成熟的开源项目，SPARK提供了详细的编译指导文档，参考<a href="https://spark.apache.org/docs/latest/building-spark.html" target="_blank" rel="noopener">这里</a>。其实编译过程非常简单，不需要预先安装MAVEN、SCALA，只是需要科学上网。编译完成之后，我试着将SPARK打包，由于打包选项中加入了“–r”，导致在打包过程中数次失败，然后不得不回过头来，补齐打包依赖，过程较为曲折。<br>以下内容记录了从一个刚安装好OS的环境出发，一步一步打包SPARK源码，生成可运行包的过程。</p>
 <h1 id="现有环境"><a href="#现有环境" class="headerlink" title="现有环境"></a>现有环境</h1><p>Red Hat Enterprise Linux Server release 6.4 (Santiago)<br>Python 2.7.11</p>
 <h1 id="Spark源码下载"><a href="#Spark源码下载" class="headerlink" title="Spark源码下载"></a>Spark源码下载</h1><p>Spark源码下载可以在Spark的<a href="https://github.com/apache/spark" target="_blank" rel="noopener">GitHub</a>上clone到本地，也可以在Spark的<a href="http://spark.apache.org/downloads.html" target="_blank" rel="noopener">下载页面</a>选择Source Code下载，下载完成解压即可。</p>
 <h1 id="编译环境准备"><a href="#编译环境准备" class="headerlink" title="编译环境准备"></a>编译环境准备</h1><h2 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h2><p>java version “1.8.0_92”</p>
@@ -491,8 +488,6 @@ SPARK_HOME=/path/to/spark /usr/bin/R CMD check --as-cran --no-tests SparkR_2.3.0
 <hr>
 <p><em>因为相信，所以看见。</em></p>
 
-          
-        
       
     </div>
     
@@ -507,164 +502,42 @@ SPARK_HOME=/path/to/spark /usr/bin/R CMD check --as-cran --no-tests SparkR_2.3.0
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wolfcym.github.io/2017/12/30/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wolfcym">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/default_avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wolfcym's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/30/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T11:12:01+08:00">
-                2017-12-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo教程/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo教程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/源码编译/" rel="tag"># 源码编译</a>
           
-
+            <a href="/tags/源码打包/" rel="tag"># 源码打包</a>
           
-            
+            <a href="/tags/R/" rel="tag"># R</a>
           
-
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/30/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
       
     </footer>
   </div>
@@ -674,10 +547,11 @@ SPARK_HOME=/path/to/spark /usr/bin/R CMD check --as-cran --no-tests SparkR_2.3.0
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -685,6 +559,8 @@ SPARK_HOME=/path/to/spark /usr/bin/R CMD check --as-cran --no-tests SparkR_2.3.0
 
 
           
+  
+
 
         </div>
         
@@ -705,8 +581,17 @@ SPARK_HOME=/path/to/spark /usr/bin/R CMD check --as-cran --no-tests SparkR_2.3.0
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -772,6 +657,22 @@ SPARK_HOME=/path/to/spark /usr/bin/R CMD check --as-cran --no-tests SparkR_2.3.0
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#现有环境"><span class="nav-number">1.</span> <span class="nav-text">现有环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark源码下载"><span class="nav-number">2.</span> <span class="nav-text">Spark源码下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译环境准备"><span class="nav-number">3.</span> <span class="nav-text">编译环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK"><span class="nav-number">3.1.</span> <span class="nav-text">JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">3.2.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#R"><span class="nav-number">3.3.</span> <span class="nav-text">R</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装EPEL-yum源"><span class="nav-number">3.3.0.1.</span> <span class="nav-text">安装EPEL yum源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装R"><span class="nav-number">3.3.0.2.</span> <span class="nav-text">安装R</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#R相关包"><span class="nav-number">3.3.0.3.</span> <span class="nav-text">R相关包</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-etc-hosts"><span class="nav-number">3.4.</span> <span class="nav-text">配置/etc/hosts</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark编译"><span class="nav-number">4.</span> <span class="nav-text">Spark编译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark打包"><span class="nav-number">5.</span> <span class="nav-text">Spark打包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关组件版本"><span class="nav-number">5.1.</span> <span class="nav-text">相关组件版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#R源码包"><span class="nav-number">5.2.</span> <span class="nav-text">R源码包</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -900,6 +801,10 @@ SPARK_HOME=/path/to/spark /usr/bin/R CMD check --as-cran --no-tests SparkR_2.3.0
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
